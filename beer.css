@@ -8,6 +8,18 @@
 	background-image: url(food.jpg);
 	background-size: 100%;
 	background-repeat: none;
+	align-content: center;
+}
+
+.jumbotron .container {
+    width: fit-content;
+    padding: 10px 30px;
+    margin: 10px;
+    background-color: white;
+    position: relative;
+	top: -60px;
+	left: 35%;
+    text-align: center;
 }
 
 #find-beer {
