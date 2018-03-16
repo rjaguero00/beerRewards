@@ -12,7 +12,7 @@ $(document).ready(function(){
 
     // });
 
-$('#beer-display').text('I love beer');
+
 
     // USER INFO
     // Get user info on 'Submit'
@@ -46,7 +46,7 @@ $('#beer-display').text('I love beer');
         searchBreweryDb(beerPreference);
 
         // Redirect to results page
-        location.href = "results.html";
+        // location.href = "results.html";
       } else {
         $("#myModal").modal();
       }
@@ -73,8 +73,8 @@ $('#beer-display').text('I love beer');
     var abv;
     var beerDescription;
 
-  //   // Div to hold beer item for list results
-  //   var beerListItemDiv$ = ('<div class="beer-list-item">');
+    // Div to hold beer item for list results
+    var beerListItemDiv = $('<div class="beer-list-item">');
 
     // AJAX call to get beer info
     function searchBreweryDb(beerPreference) {
@@ -89,6 +89,7 @@ $('#beer-display').text('I love beer');
             console.log(response);
 
             for (var i=0; i<12; i++) {
+                console.log(i);
 
                 beerName = response.data[i].nameDisplay;
                 console.log('Beer name: ' + beerName);
@@ -97,6 +98,7 @@ $('#beer-display').text('I love beer');
                 console.log('Beer style: ' + beerStyle);
 
                 abv = response.data[i].abv;
+                abv = abv + ' ABV';
                 console.log('ABV: ' + abv);
 
                 beerDescription = response.data[i].description;
@@ -111,8 +113,11 @@ $('#beer-display').text('I love beer');
                   //     abv + '<br>' 
                   // );
 
-                  // // // Display on results page
-                  // $('#beer-display').append(beerListItemDiv);
+                // Hide instructions
+                $('#start-message').hide();
+
+                // Display on results page
+                $('#beer-display').append(beerListItemDiv);
             }
         })
     };
@@ -230,24 +235,23 @@ $('#beer-display').text('I love beer');
     // Tests if 'Weight' input exists.
     if(weight === "") {
         //alert("Please enter your weight");
-        $("#myModal").modal();
         $("#weight").val("").focus();
         return false;
     // Tests if 'Workout Length' exists.
     } else if (workoutLength === "") {
-        alert("Please enter the time of your workout");
+        //alert("Please enter the time of your workout");
         $("#activity-length").val("").focus();
         return false;
     // Tests if 'Beer Preference' exists.
     } else if (beerPreference === "") {
-        alert("Please enter a beer preference");
+        //alert("Please enter a beer preference");
         $("#beer-search").val("").focus();
         return false;
     // If all fields are complete, go ahead.
     } else {
-        $('#weight').val("");
-        $('#activity-length').val("");
-        $('#beer-search').val("");
+        //$('#weight').val("");
+        //$('#activity-length').val("");
+        //$('#beer-search').val("");
         return true;
     }
   }// End of getInputValues()
