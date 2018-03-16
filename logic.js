@@ -19,32 +19,35 @@ $(document).ready(function(){
     $("#find-beer").on("click", function(event) {
       event.preventDefault();
 
-      // Capture weight input
-      var weight = $('#weight').val().trim();
-      $('#weight').val('');
-      console.log('Weight: ' + weight);
+      // Go ahead as long as inputs are validated.
+      if(getInputValues()){
 
-      // Capture MET number from exercise input
-      var workoutMetValue = $('#workout').val();
-      $('#workout').val('');
-      console.log('MET: ' + workoutMetValue);
+        // Capture weight input
+        var weight = $('#weight').val().trim();
+        $('#weight').val('');
+        console.log('Weight: ' + weight);
 
-      // Capture length of workout
-      var workoutLength = $('#activity-length').val().trim();
-      $('#activity-length').val('');
-      console.log('Workout: ' + workoutLength + 'hrs');
+        // Capture MET number from exercise input
+        var workoutMetValue = $('#workout').val();
+        $('#workout').val('');
+        console.log('MET: ' + workoutMetValue);
 
-      // Capture beer preference
-      var beerPreference = $('#beer-search').val().trim();
-      $('#beer-search').val('');
-      console.log('Beer preference: ' + beerPreference);
+        // Capture length of workout
+        var workoutLength = $('#activity-length').val().trim();
+        $('#activity-length').val('');
+        console.log('Workout: ' + workoutLength + 'hrs');
 
-      calories(workoutMetValue, weight);
-      searchBreweryDb(beerPreference);
+        // Capture beer preference
+        var beerPreference = $('#beer-search').val().trim();
+        $('#beer-search').val('');
+        console.log('Beer preference: ' + beerPreference);
 
-      // Redirect to results page
-      location.href = "results.html";
+        calories(workoutMetValue, weight);
+        searchBreweryDb(beerPreference);
 
+        // Redirect to results page
+        location.href = "results.html";
+      }
     });
 
     // CALCULATE CALORIES
@@ -209,3 +212,35 @@ $(document).ready(function(){
   //   }
 
   //   searchRecipes();
+
+  // Form Validation to prevent user from leaving inputs empty
+  // #weight, #activity-length, #beer-search
+  function getInputValues() {
+
+    weight = $('#weight').val().trim();
+    workoutLength = $('#activity-length').val().trim();
+    beerPreference = $('#beer-search').val().trim();
+
+    // Tests if 'Weight' input exists.
+    if(weight === "") {
+        alert("Please enter your weight");
+        $("#weight").val("").focus();
+        return false;
+    // Tests if 'Workout Length' exists.
+    } else if (workoutLength === "") {
+        alert("Please enter the time of your workout");
+        $("#activity-length").val("").focus();
+        return false;
+    // Tests if 'Beer Preference' exists.
+    } else if (beerPreference === "") {
+        alert("Please enter a beer preference");
+        $("#beer-search").val("").focus();
+        return false;
+    // If all fields are complete, go ahead.
+    } else {
+        $('#weight').val("");
+        $('#activity-length').val("");
+        $('#beer-search').val("");
+        return true;
+    }
+  }// End of getInputValues()
