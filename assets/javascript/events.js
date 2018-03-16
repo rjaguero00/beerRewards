@@ -93,26 +93,6 @@ $(document).ready(function(){
         })
     };
 
-    // CALORIES/12 OZ
-    var caloriesEstPer12oz;
-
-    // Estimate calories per 12 oz beer
-    function estimateCalories(abv) {
-        caloriesEstPer12oz = parseInt(abv) * 2.5 * 12;
-        console.log('Calories estimate per 12oz: ' + caloriesEstPer12oz);
-
-        estimateWorkoutWorth(caloriesBurned, caloriesEstPer12oz);
-    }
-
-    // # OF BEERS ALLOWED
-    // Estimate amount of beer type allowed
-    function estimateWorkoutWorth(caloriesBurned, caloriesEstPer12oz) {
-        var amountBeersAllowed = caloriesBurned/caloriesEstPer12oz;
-        console.log('Amount of beers allowed: ' + amountBeersAllowed);
-
-        displayResults();
-    }
-
     // ADD TO RESULTS
     function displayResults() {
 
@@ -124,90 +104,34 @@ $(document).ready(function(){
         $('#beer-table > tbody').append(row);
     }
 });
-// ================================================================== //
-  // RECIPE BACKUP STUFF
-  //   var keyword;
-  //   var minCal = 0;
-  //   var maxCal = 0;
-  //   var minResults = 0;
-  //   var maxResults = 10;
-
-  //   // AJAX call to get nutrient info
-  //   function searchRecipes() {
-
-  //       var queryURL = "https://api.edamam.com/search?q=chicken&app_id=6531ba09&app_key=e758518e6f7c22b5c2cdfc78272e0252&from=0&to=12&calories=000-500";
-
-  //       $.ajax( {
-  //           url: queryURL,
-  //           method: "GET"
-  //       }).then(function (response) {
-
-  //           console.log(response);
-
-  //           console.log(response.label);
-
-
-  //           for (var i=0; i<response.hits.length; i++) {
-
-  //               var recipeDiv = $('<div class="recipe">');
-  //               var recipeCard = $('<figure class="item">');
-
-  //               var image = response.hits[i].recipe.image;
-  //               var recipeName = response.hits[i].recipe.label;
-  //               var calories = (response.hits[i].recipe.calories).toFixed(2) + ' CALORIES';
-
-  //               console.log(recipeName, calories);
-
-  //               recipeDiv.append(
-  //                   '<figure class="floatLeft">' + 
-  //                       '<img src="' + image + '">' +
-  //                       '<figcaption>' + recipeName + '<br>' + calories + '</figcaption>' +
-  //                    '</figure>' + '<br>'
-  //               );
-  //               $('#recipe-display').append(recipeCard);
-
-  //               recipeCard.append('<img src="' + image + '">' + '<figcaption>' + recipeName + '<br>' + calories + '</figcaption>');
-  //               // $("#carousel").prepend('<figure class="mySlides">' + '<img src="' + image + '">' + '<figcaption>' + recipeName + '<br>' + calories + '</figcaption>' + '</figure>' + '<br>');
-  //               $("#carousel").prepend(recipeCard);
-
-  //               $('#recipe-table > tbody').append("<tr><td>" + '<img width="100px" src="' + image + '">' + "</td><td>" + recipeName + "</td><td>" +
-  //               calories + "</td></tr>");
-
-  //               // showDivs();
-  //           }
-  //           showDivs()
-  //       });
-  //   }
-
-  //   searchRecipes();
 
   // Form Validation to prevent user from leaving inputs empty
   // #weight, #activity-length, #beer-search
-  function getEventInputValues() {
+//   function getEventInputValues() {
 
-    myLocation = $('#weight').val().trim();
-    myEventPreference = $('#activity-length').val().trim();
+//     myLocation = $('#weight').val().trim();
+//     myEventPreference = $('#activity-length').val().trim();
 
-    // Tests if 'Weight' input exists.
-    if(weight === "") {
-        //alert("Please enter your weight");
-        $("#weight").val("").focus();
-        return false;
-    // Tests if 'Workout Length' exists.
-    } else if (workoutLength === "") {
-        //alert("Please enter the time of your workout");
-        $("#activity-length").val("").focus();
-        return false;
-    // Tests if 'Beer Preference' exists.
-    } else if (beerPreference === "") {
-        //alert("Please enter a beer preference");
-        $("#beer-search").val("").focus();
-        return false;
-    // If all fields are complete, go ahead.
-    } else {
-        //$('#weight').val("");
-        //$('#activity-length').val("");
-        //$('#beer-search').val("");
-        return true;
-    }
-  }// End of getInputValues()
+//     // Tests if 'Weight' input exists.
+//     if(weight === "") {
+//         //alert("Please enter your weight");
+//         $("#weight").val("").focus();
+//         return false;
+//     // Tests if 'Workout Length' exists.
+//     } else if (workoutLength === "") {
+//         //alert("Please enter the time of your workout");
+//         $("#activity-length").val("").focus();
+//         return false;
+//     // Tests if 'Beer Preference' exists.
+//     } else if (beerPreference === "") {
+//         //alert("Please enter a beer preference");
+//         $("#beer-search").val("").focus();
+//         return false;
+//     // If all fields are complete, go ahead.
+//     } else {
+//         //$('#weight').val("");
+//         //$('#activity-length').val("");
+//         //$('#beer-search').val("");
+//         return true;
+//     }
+//   }// End of getInputValues()
