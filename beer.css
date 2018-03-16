@@ -1,14 +1,17 @@
-
-
 .container-fluid {
 	background-color: #339966;
 }
 
-.jumbotron {
+/* .jumbotron {
 	background-image: url(food.jpg);
 	background-size: 100%;
 	background-repeat: none;
 	align-content: center;
+} */
+.jumbotron {
+	background-image: url(Beer-Taps-2.jpg);
+	background-size: 100%;
+	background-repeat: none;
 }
 
 .jumbotron .container {
