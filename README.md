@@ -10,6 +10,8 @@ Additionally, they can search for events that matcht the activity of their choic
 ### Languages Used
 * HTML
 * CSS
+* Bootstrap
+* Materialize
 * JavaScript
 * jQuery
 * Firebase
