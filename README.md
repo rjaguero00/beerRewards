@@ -1,5 +1,3 @@
-# beerRewards
-
 # Beer Rewards
 
 ## Developed by Robert Aguero, Geina Corrente, Matt King and Stefanie Loh
